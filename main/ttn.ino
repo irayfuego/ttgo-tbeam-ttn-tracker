@@ -157,7 +157,7 @@ void onEvent(ev_t event) {
         devaddr_t devaddr = 0;
         u1_t nwkKey[16];
         u1_t artKey[16];
-            LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
+        LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
         Serial.print("netid: ");
         Serial.println(netid, DEC);
         Serial.print("devaddr: ");
@@ -375,7 +375,7 @@ void ttn_sf(unsigned char sf) {
 
 void ttn_adr(bool enabled) {
     LMIC_setAdrMode(enabled);
-    LMIC_setLinkCheckMode(!enabled);
+    LMIC_setLinkCheckMode(enabled);
 }
 
 uint32_t ttn_get_count() {
